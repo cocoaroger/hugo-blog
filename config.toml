@@ -1,0 +1,11 @@
+baseURL = "https://cocoaroger.github.io/"
+googleAnalytics = "UA-104439613-1"
+languageCode = "en-us"
+title = "cocoaroger"
+theme = "nofancy"
+
+[author]
+    name = "cocoaroger"
+    gaID = "UA-104439613-1"
+    github = "cocoaroger"
+    twitter = "roger_wxq"

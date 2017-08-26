@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on cocoaroger</title>
+    <link>https://cocoaroger.github.io/post/</link>
+    <description>Recent content in Posts on cocoaroger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Aug 2017 10:57:31 +0800</lastBuildDate>
+    
+	<atom:link href="https://cocoaroger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Objective-C Guide Style</title>
+      <link>https://cocoaroger.github.io/post/oc-guide-style/</link>
+      <pubDate>Sat, 26 Aug 2017 10:57:31 +0800</pubDate>
+      
+      <guid>https://cocoaroger.github.io/post/oc-guide-style/</guid>
+      <description>Remember that code is read much more often than it is written, and that 80% of the lifetime cost of software goes to maintenance.
+ 在 搜布 与 racechao 一起整理
+目录  参考和引用 快捷键的使用 命名规则  变量命名 常量命名 类命名 类属性定义 方法的声明和定义 方法中 {} 的位置  字面量 布尔 枚举类型 Block Protocols 代码组织 Xcode 工程 Best Practices  参考和引用  纽约时报 Objective-C 规范指南  快捷键的使用  快速生成注释格式化：在声明的上一行 &amp;ldquo;option+command+/&amp;rdquo; 格式化代码：选中需要格式化的代码 &amp;ldquo;control+i&amp;rdquo;  命名规则 变量命名  变量名应使用容易意会的全称，采用驼峰命名法，且首字母小写。 变量命名不允许出现中文拼音，应该使用英文对变量进行命名。  常量命名  const  使用小写“k”作为前缀,首字母大写来分割单词。如: kInvalidHandle。 如果是NotificationName常量，不要使用k开头，以Notification结尾，如：UITextFieldDidBeginEditingNotification  // 规范事例 static const NSTimeInterval kRWTTutorialViewControllerNavigationFadeAnimationDuration = 0.</description>
+    </item>
+    
+  </channel>
+</rss>
