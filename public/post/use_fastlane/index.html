@@ -4,8 +4,8 @@
 
   
   <meta charset="utf-8">
-  <title>cocoaroger</title>
-  <meta name="description" content="cocoaroger">
+  <title>使用 fastlane</title>
+  <meta name="description" content="使用 fastlane">
   <meta name="author" content="cocoaroger">
 
   
@@ -67,101 +67,91 @@
 <div class="pure-g">
     <div class="pure-u-1-24 pure-u-md-5-24"></div>
 	<div class="pure-u-11-12 pure-u-md-5-8">
-	<div class="post-content">
-	
-	  <ul class="posts">
-		
-		
-		
-		<li>
-		  
-		  <a href="https://cocoaroger.github.io/post/use_fastlane/">使用 fastlane</a>
+        <div class="post">
 
-		  <p class="footnote">
-			<time datetime="2017-09-26T14:11:54&#43;08:00" class="post-list timeago">2017-09-26T14:11:54&#43;08:00</time>
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2017-09-26</time>
+		            
+                    
+                    
 
-			
+                    
 
-			
+                    
+                </p>
+                <h2>使用 fastlane</h2>
+            </div>
 
-			
+            <div class="post-content">
+                
 
-			
+<p>以下是我集成 <em>fastlane</em> 的过程</p>
 
-		  </p>
-		</li>
-		
-		
-		
-		<li>
-		  
-		  <a href="https://cocoaroger.github.io/post/hugo-deploy/">Hugo 自动化部署脚本 deploy.py</a>
+<h4 id="安装-fastlane">安装 <em>fastlane</em></h4>
 
-		  <p class="footnote">
-			<time datetime="2017-08-26T17:28:30&#43;08:00" class="post-list timeago">2017-08-26T17:28:30&#43;08:00</time>
+<p><code>sudo gem install fastlane</code></p>
 
-			
+<h4 id="初始化-fastlane">初始化 <em>fastlane</em></h4>
 
-			
+<p><code>cd</code> 到项目目录
+执行 <code>fastlane init</code></p>
 
-			
+<h4 id="两个主要文件配置">两个主要文件配置</h4>
 
-			
+<h5 id="fastlane-appfile-配置-app-基本信息"><em>fastlane/Appfile</em> 配置 App 基本信息</h5>
 
-		  </p>
-		</li>
-		
-		
-		
-		<li>
-		  
-		  <a href="https://cocoaroger.github.io/post/oc-guide-style/">Objective-C Guide Style</a>
+<pre><code class="language-ruby-lang">app_identifier &quot;com.cocoaroger.appstore&quot; # The bundle identifier of your app
 
-		  <p class="footnote">
-			<time datetime="2017-08-26T10:57:31&#43;08:00" class="post-list timeago">2017-08-26T10:57:31&#43;08:00</time>
+apple_dev_portal_id &quot;&quot;  # Apple Developer Account
+itunes_connect_id &quot;&quot;  # iTunes Connect Account
 
-			
+team_id &quot;&quot; # Developer Portal Team ID
+itc_team_id &quot;&quot; # iTunes Connect Team ID
 
-			
+for_lane :adhoc do
+  app_identifier &quot;com.cocoaroger.test&quot;
+end
 
-			
+for_lane :appstore do
+  app_identifier &quot;com.cocoaroger.appstore&quot;
+end
+</code></pre>
 
-			
+<h5 id="fastlane-fastfile-定制我们的自动化脚本"><em>fastlane/Fastfile</em> 定制我们的自动化脚本</h5>
 
-		  </p>
-		</li>
-		
-		
-		
-		
-		
-		
-		
-		<li>
-		  
-		  <a href="https://cocoaroger.github.io/post/">Posts</a>
+<p>我这里的 <code>appstore</code> 只是打包了，没有直接传到 <code>itunes connect</code></p>
 
-		  <p class="footnote">
-			<time datetime="2017-09-26T14:11:54&#43;08:00" class="post-list timeago">2017-09-26T14:11:54&#43;08:00</time>
+<pre><code class="language-ruby-lang">fastlane_version &quot;2.55.0&quot;
+default_platform :ios
 
-			
+desc &quot;upload pgyer&quot;
+lane :adhoc do
+  gym(export_method: &quot;ad-hoc&quot;)
+  pgyer(api_key: &quot;&quot;, user_key: &quot;&quot;)
+end
 
-			
+desc &quot;upload appstore&quot;
+lane :appstore do
+  gym(export_method: &quot;app-store&quot;)
+end
 
-			
+after_all do |lane|
+  puts &quot;Successfully deployed new App Update.&quot;
+end
 
-			
+error do |lane, exception|
+  puts exception.message
+end
+</code></pre>
 
-		  </p>
-		</li>
-		
-		
-		
-		
-		
-		
-	  </ul>
-	</div>
+<h4 id="运行方法">运行方法</h4>
+
+<p>上传 <code>pgyer</code> 测试环境：<code>fastlane adhoc</code>
+打包 <code>appstore</code>：<code>fastlane appstore</code></p>
+
+            </div>
+        </div>
 	</div>
     <div class="pure-u-1-24 pure-u-md-1-6"></div>
 </div>
